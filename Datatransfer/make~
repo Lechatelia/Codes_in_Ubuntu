@@ -1,0 +1,6 @@
+TARGET   	= datatransfer
+$(TARGET) :main.c
+    gcc main.c -o $(TARGET) -pthread
+clean:
+	rm -rf *.o $(TARGET)
+
