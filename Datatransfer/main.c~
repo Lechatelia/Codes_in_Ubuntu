@@ -16,7 +16,7 @@
 #include <pthread.h>
 
 #define ECHO_PORT 6666  //echo port
-#define m_ClientPort 8080
+#define m_ClientPort 8888
 #define DATA_BUF_MAX_LEN 1024
 #define remote_server_ip "192.168.1.103"
 #define message "hello I'm zhujinguo\nA handsome boy!\n"
