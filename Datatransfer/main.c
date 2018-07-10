@@ -28,7 +28,8 @@ unsigned char RevBuff[1024];
 unsigned char RevBuf[1024];
 unsigned char SendBuff[1024];
 int numbytes,numbytesclient;
-fd_set rfds;  //文件描述符集合。用于select函数，可以达到非阻塞的效果
+fd_set rfds;  
+//文件描述符集合。用于select函数，可以达到非阻塞的效果
 struct timeval tv;
 int retval;
 fd_set rfds1;  //文件描述符集合。用于select函数，可以达到非阻塞的效果
