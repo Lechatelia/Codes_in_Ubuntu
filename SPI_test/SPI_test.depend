@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1531217920 source:/usr/Codes/Codes_in_Ubuntu/SPI_test/main.cpp
+	<iostream>
+	<string>
+	"fcntl.h"
+
