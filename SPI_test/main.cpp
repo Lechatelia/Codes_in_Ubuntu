@@ -9,6 +9,7 @@
 //#include string.h
 #include <unistd.h>
 #include <fcntl.h>
+#include<time.h>
 //define O_WRONLY and O_RDONLY
 
 using namespace std;
@@ -29,8 +30,8 @@ using namespace std;
 #define GPIO_VALUE_3          "/sys/class/gpio/gpio3/value"
 #define GPIO_VALUE_4          "/sys/class/gpio/gpio4/value"
 
-#define GPIO_DIR_OUT      "OUT"
-#define GPIO_DIR_IN      "IN"
+#define GPIO_DIR_OUT      "out"
+#define GPIO_DIR_IN      "in"
 
 #define GPIO_H      "1"
 #define GPIO_L      "0"
@@ -46,7 +47,7 @@ int GPIO_export(const char* export_name,const char* gpio_name)
 
          {
 
-                   cout<<("ERR:export GPIO error.\n");
+                   std::cout<<("ERR:export GPIO error.\n");
 
                    return -1;
 
@@ -58,7 +59,7 @@ int GPIO_export(const char* export_name,const char* gpio_name)
          return re;
 }
 
-int GPIO_set_direction(const char* gpio_dir_name,const char* dir)
+int GPIO_set_direction(const char* gpio_dir_name,const char* gpio_value_name, const char* dir)
 {
 
          int fd = open(gpio_dir_name, O_WRONLY);
@@ -67,52 +68,28 @@ int GPIO_set_direction(const char* gpio_dir_name,const char* dir)
 
          {
 
-                   cout<<("ERR: set pin direction open error.\n");
+                   std::cout<<("ERR: set pin direction open error.\n");
 
                    return -1;
 
          }
-
-        int re= write(fd, dir, sizeof(dir));
         close(fd);
-        return re;
+        int fd_for_value=open(gpio_value_name, O_RDWR);
+        return fd_for_value;
 }
 
-int GPIO_Set_level(const char* gpio_value_name,const char* level)
+int GPIO_Set_level(int fd_for_value,const char* level)
 {
-         int fd = open(gpio_value_name, O_RDWR);
 
-         if(fd == -1)
-
-         {
-
-                   cout<<("ERR: Radio hard reset pin value open error.\n");
-
-                   return -1;
-
-         }
-          int re=write(fd, level, sizeof(level));
-          close(fd);
+          int re=write(fd_for_value, level, sizeof(level));
           return re;
-
 }
 
-int GPIO_read_level(const char* gpio_value_name,char* level)
+int GPIO_read_level(int fd_for_value,char* level)
 {
-         int fd = open(gpio_value_name, O_RDWR);
 
-         if(fd == -1)
-
-         {
-
-                   cout<<("ERR: Radio hard reset pin value open error.\n");
-
-                   return -1;
-
-         }
-          int re=read(fd, level, sizeof(level));
-          close(fd);
-          return re;
+          int level_state=read(fd_for_value, level, sizeof(level));
+          return level_state;
 
 }
 
@@ -121,6 +98,10 @@ int GPIO_read_level(const char* gpio_value_name,char* level)
 int main()
 
 {
+    int fd_value_1=0;
+    int fd_value_2=0;
+    int fd_value_3=0;
+    int fd_value_4=0;
 
 
 
@@ -141,31 +122,35 @@ int main()
 
          for(int i=0;i<4;i++)
          {
-            GPIO_set_direction(GPIO_DIR_1,GPIO_DIR_IN);
-            GPIO_set_direction(GPIO_DIR_2,GPIO_DIR_OUT);
-            GPIO_set_direction(GPIO_DIR_3,GPIO_DIR_OUT);
-            GPIO_set_direction(GPIO_DIR_4,GPIO_DIR_OUT);
+            fd_value_1=GPIO_set_direction(GPIO_DIR_1,GPIO_VALUE_1,GPIO_DIR_IN);
+            fd_value_2=GPIO_set_direction(GPIO_DIR_2,GPIO_VALUE_2,GPIO_DIR_OUT);
+            fd_value_3=GPIO_set_direction(GPIO_DIR_3,GPIO_VALUE_3,GPIO_DIR_OUT);
+            fd_value_4=GPIO_set_direction(GPIO_DIR_4,GPIO_VALUE_4,GPIO_DIR_OUT);
          }
 
 
 
          //输出复位信号: 拉高>100ns
 
-
+        struct timespec delay_time;
+        delay_time.tv_sec=0;
+        delay_time.tv_nsec=500000;
          while(1)
 
          {
-
-            //GPIO_Set_level(GPIO_VALUE_1,GPIO_H)
-            GPIO_Set_level(GPIO_VALUE_2,GPIO_H);
-            GPIO_Set_level(GPIO_VALUE_3,GPIO_H);
-            GPIO_Set_level(GPIO_VALUE_4,GPIO_H);
-            usleep(1000);
-            GPIO_Set_level(GPIO_VALUE_2,GPIO_L);
-            GPIO_Set_level(GPIO_VALUE_3,GPIO_L);
-            GPIO_Set_level(GPIO_VALUE_4,GPIO_L);
-            usleep(1000);
-
+        //GPIO_Set_level(GPIO_VALUE_1,GPIO_H)
+            GPIO_Set_level(fd_value_2,GPIO_H);
+            GPIO_Set_level(fd_value_3,GPIO_H);
+            GPIO_Set_level(fd_value_4,GPIO_L);
+            //usleep(500);
+            if(nanosleep(& delay_time,NULL)!=0)
+                std::cout<<"123"<<std::endl;
+            GPIO_Set_level(fd_value_2,GPIO_L);
+            GPIO_Set_level(fd_value_3,GPIO_L);
+            GPIO_Set_level(fd_value_4,GPIO_H);
+            //usleep(500);
+            if(nanosleep(& delay_time,NULL)!=0)
+                std::cout<<"123"<<std::endl;
          }
 
 
