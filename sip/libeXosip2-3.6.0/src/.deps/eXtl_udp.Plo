@@ -88,9 +88,8 @@ eXtl_udp.lo: eXtl_udp.c /usr/include/stdc-predef.h eXosip2.h \
  /usr/local/include/osipparser2/sdp_message.h \
  ../include/eXosip2/eX_options.h ../include/eXosip2/eX_subscribe.h \
  ../include/eXosip2/eX_refer.h ../include/eXosip2/eX_message.h \
- ../include/eXosip2/eX_publish.h eXtransport.h \
- /usr/include/openssl/opensslv.h jpipe.h /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ ../include/eXosip2/eX_publish.h eXtransport.h jpipe.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h
 
@@ -321,8 +320,6 @@ eXosip2.h:
 ../include/eXosip2/eX_publish.h:
 
 eXtransport.h:
-
-/usr/include/openssl/opensslv.h:
 
 jpipe.h:
 

@@ -41,7 +41,7 @@
 #define HAVE_NETDB_H 1
 
 /* Define to 1 if you have the <openssl/ssl.h> header file. */
-#define HAVE_OPENSSL_SSL_H 1
+/* #undef HAVE_OPENSSL_SSL_H */
 
 /* Define if you have POSIX threads libraries and header files. */
 #define HAVE_PTHREAD 1

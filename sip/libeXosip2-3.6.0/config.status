@@ -448,7 +448,7 @@ Copyright (C) 2010 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/lechatelia/Downloads/sip/libeXosip2-3.6.0'
+ac_pwd='/home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -674,7 +674,7 @@ finish_cmds='PATH="\$PATH:/sbin" ldconfig -n $libdir'
 finish_eval=''
 hardcode_into_libs='yes'
 sys_lib_search_path_spec='/usr/lib/gcc/x86_64-linux-gnu/5 /usr/lib/x86_64-linux-gnu /usr/lib /lib/x86_64-linux-gnu /lib'
-sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa  /usr/local/lib   /usr/local/cuda-9.0/lib64 '
+sys_lib_dlsearch_path_spec='/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa /usr/local/cuda-9.0/lib64 /usr/local/lib '
 hardcode_action='immediate'
 enable_dlopen='unknown'
 enable_dlopen_self='unknown'
@@ -823,7 +823,7 @@ S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
 S["LIBOBJS"]=""
-S["EXOSIP_LIB"]=" -lnsl -lrt -lresolv -lssl -lcrypto"
+S["EXOSIP_LIB"]=" -lnsl -lrt -lresolv"
 S["EXOSIP_FLAGS"]=" -DOSIP_MT -pedantic -DENABLE_DEBUG -g -DENABLE_TRACE"
 S["TOOLS_LIBS"]=""
 S["OSIP_LIBS"]="-L/usr/local/lib -losipparser2 -losip2"
@@ -887,7 +887,7 @@ S["INSIDE_GNOME_COMMON_FALSE"]=""
 S["INSIDE_GNOME_COMMON_TRUE"]="#"
 S["am__untar"]="${AMTAR} xf -"
 S["am__tar"]="${AMTAR} chof - \"$$tardir\""
-S["AMTAR"]="${SHELL} /home/lechatelia/Downloads/sip/libeXosip2-3.6.0/scripts/missing --run tar"
+S["AMTAR"]="${SHELL} /home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0/scripts/missing --run tar"
 S["am__leading_dot"]="."
 S["SET_MAKE"]=""
 S["AWK"]="mawk"
@@ -895,12 +895,12 @@ S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /home/lechatelia/Downloads/sip/libeXosip2-3.6.0/scripts/install-sh"
-S["MAKEINFO"]="${SHELL} /home/lechatelia/Downloads/sip/libeXosip2-3.6.0/scripts/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/lechatelia/Downloads/sip/libeXosip2-3.6.0/scripts/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /home/lechatelia/Downloads/sip/libeXosip2-3.6.0/scripts/missing --run automake-1.11"
-S["AUTOCONF"]="${SHELL} /home/lechatelia/Downloads/sip/libeXosip2-3.6.0/scripts/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /home/lechatelia/Downloads/sip/libeXosip2-3.6.0/scripts/missing --run aclocal-1.11 -I scripts"
+S["install_sh"]="${SHELL} /home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0/scripts/install-sh"
+S["MAKEINFO"]="${SHELL} /home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0/scripts/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0/scripts/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0/scripts/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0/scripts/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /home/lechatelia/Desktop/Codes/Codes_in_Ubuntu/sip/libeXosip2-3.6.0/scripts/missing --run aclocal-1.11 -I scripts"
 S["VERSION"]="3.6.0"
 S["PACKAGE"]="libeXosip2"
 S["CYGPATH_W"]="echo"
@@ -1035,7 +1035,6 @@ D["HAVE_NETDB_H"]=" 1"
 D["HAVE_ARPA_NAMESER_COMPAT_H"]=" 1"
 D["HAVE_RESOLV_H"]=" 1"
 D["HAVE_GETIFADDRS"]=" 1"
-D["HAVE_OPENSSL_SSL_H"]=" 1"
   for (key in D) D_is_set[key] = 1
   FS = ""
 }

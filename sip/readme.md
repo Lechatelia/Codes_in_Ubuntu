@@ -1,5 +1,8 @@
 # Zhu Jinguo 20180913
 1.编译两个库 osip 和exosip 
+
+如果发生错误注意清楚之前的编译文件 make clean即可
+
  ./configure
   make
   sudo make install
